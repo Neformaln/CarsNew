@@ -15,9 +15,9 @@ public class LoginPage {
     private static Logger logger = Logger.getLogger(LoginPage.class);
     public Button button;
 
-    private By loginlocator = By.xpath(".//*[@id='auth-container__forms']/div/div[2]/form/div[1]/div[1]/input");
-    private By passwordLocator = By.xpath(".//*[@id='auth-container__forms']/div/div[2]/form/div[1]/div[2]/input");
-    private By EnterButtonLocator = By.xpath(".//*[@id='auth-container__forms']/div/div[2]/form/div[4]/div/button");
+    private By loginlocator = By.xpath("//input[@placeholder='Ник или e-mail']");
+    private By passwordLocator = By.xpath("//input[@placeholder='Пароль']");
+    private By EnterButtonLocator = By.cssSelector(".auth-box__auth-submit");
 
     public LoginPage(WebDriver driver)
 
@@ -44,12 +44,13 @@ public class LoginPage {
     }
 
     public void login(String login, String password) {
+        logger.info("Login and password input");
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(loginlocator));
         setLogin(login);
         setPassword(password);
         enterButton();
-        logger.info("Login and password input");
+
     }
 
 }

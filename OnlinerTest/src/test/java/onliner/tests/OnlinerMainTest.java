@@ -6,7 +6,6 @@ import onliner.forms.MainPage;
 
 import onliner.services.BrowserService;
 import onliner.services.OnlinerService;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -19,7 +18,6 @@ import java.util.Properties;
 
 public class OnlinerMainTest {
 
-    private static final Logger logger = Logger.getLogger(OnlinerMainTest.class);
 
     @Parameters({"login", "password"})
     @Test

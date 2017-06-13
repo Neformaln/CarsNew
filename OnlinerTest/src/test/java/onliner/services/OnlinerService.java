@@ -1,9 +1,11 @@
 package onliner.services;
 
 
+
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,16 +23,13 @@ public class OnlinerService {
 
     private static final String OPINIONS_FILE_PATH="src/main/resources/opinions.csv";
 
+    private static Logger logger = Logger.getLogger(OnlinerService.class);
+
     public Properties readProperties(){
+        logger.info("Create csv file");
         File ff = new File(getClass().getClassLoader().getResource(BROWSER_PROPERTIES_PATH).getFile());
-        FileInputStream fis= null;
         Properties property = new Properties();
-        try {
-            fis = new FileInputStream(ff);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
+        try (FileInputStream fis = new FileInputStream(ff)){
             property.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,7 +42,8 @@ public class OnlinerService {
      *  search opinions
      *
      */
-    public Set findClassesForOpinions(String pageSourse){
+    public Set findClassesForOpinions(String pageSourse) {
+        logger.info("Seeking opinions through regular expressions");
         Pattern p = Pattern.compile("([b]\\-[a-z_2-]+\\_(green|blue|red))");
         Matcher m = p.matcher(pageSourse);
         Set<String> classes= new LinkedHashSet<>();
@@ -54,7 +54,7 @@ public class OnlinerService {
     }
 
     public void saveOpinionsInCsv(List data){
-
+        logger.info("Save opinions on csv file");
         Path path = Paths.get(OPINIONS_FILE_PATH);
         try {
             Files.write(path, data);

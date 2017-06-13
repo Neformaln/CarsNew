@@ -30,6 +30,7 @@ public class CategoriesPage {
 
 
     public String getCategoryName(){
+        logger.info("Get category name");
         Wait wait = new FluentWait(driver)
                 .withTimeout(30, SECONDS)
                 .pollingEvery(5, SECONDS)

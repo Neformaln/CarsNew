@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 
 public class MainPage {
 
-
     By clickForEnterLocator = By.xpath("//*[@id='userbar']");
     By clickForExitLocator = By.cssSelector(".b-top-profile__link.b-top-profile__link_secondary");
     By clickForAvatarLocator = By.xpath(".//*[@id='userbar']/div[1]/div[1]/div[1]/div");
@@ -35,23 +34,23 @@ public class MainPage {
     public Button button;
 
 
-
-
     private WebDriver driver;
     private static Logger logger = Logger.getLogger(MainPage.class);
 
 
     public MainPage(WebDriver driver) {
+        logger.info("Open Onliner.by");
         this.driver = driver;
         button = new Button(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        logger.info("Open Onliner.by");
+
     }
 
     public void pageNavigateWindow(String mainPageUrl){
+        logger.info("Maximize window");
         driver.manage().window().maximize();
         driver.navigate().to(mainPageUrl);
-        logger.info("Maximize window");
+
     }
 
     public String getUrl(){
@@ -60,8 +59,9 @@ public class MainPage {
     }
 
     public void clickForEnter(){
-        button.clickButton(clickForEnterLocator);
         logger.info("Open the menu to enter the logging page");
+        button.clickButton(clickForEnterLocator);
+
     }
 
     public boolean clickForExitIfExist(){
@@ -76,6 +76,7 @@ public class MainPage {
     }
 
     public int randomGeneratedCategories(){
+        logger.info("Get random category from list");
         Random random = new Random();
         int size = popularCategories().size();
         int max = size;
@@ -96,6 +97,7 @@ public class MainPage {
     }
 
     public void clickForRandomCategories(){
+        logger.info("Select a random category from the list");
         int indRand = randomGeneratedCategories();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(ulPopularCategoriesLocator));
@@ -103,11 +105,12 @@ public class MainPage {
         WebElement liTheme = listWebElement.get(indRand);
         textRandomCategories = liTheme.findElement(spanPopularCategoriesLocator).getText();
         liTheme.click();
-        logger.info("Select a random category from the list");
+
     }
 
     public void findAndSaveOpinions() {
 
+        logger.info("Search and save all opinions on the page");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfElementLocated(divOpinionsLocator));
         OnlinerService onlinerService = new OnlinerService();
@@ -121,13 +124,14 @@ public class MainPage {
             }
         }
         onlinerService.saveOpinionsInCsv(data);
-        logger.info("Search and save all opinions on the page");
+
 
     }
 
 
     public void logout(){
 
+        logger.info("Logout");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(clickForAvatarLocator));
         Actions action = new Actions(driver);
@@ -136,7 +140,7 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(clickForExitLocator));
         WebElement element = driver.findElement(clickForExitLocator);
         element.click();
-        logger.info("Logout");
+
 
     }
 
@@ -152,8 +156,9 @@ public class MainPage {
 
     public void closeBrowser()
     {
-        driver.quit();
         logger.info("Close browser");
+        driver.quit();
+
     }
 
 
