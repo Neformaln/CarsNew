@@ -20,5 +20,4 @@ public abstract class BrowserService {
         }
         throw new RuntimeException();
     }
-
 }

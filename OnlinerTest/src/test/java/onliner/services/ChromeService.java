@@ -8,16 +8,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ChromeService extends BrowserService {
 
     private static final String CHROME_DRIVER_NAME= "webdriver.chrome.driver";
-
     private static final String DRIVER_LOCATION_KEY_WIN = "driver_chrome_location_win";
-
     private static final String DRIVER_LOCATION_KEY_LIN = "driver_chrome_location_lin";
-
     private static final ChromeService instance = new ChromeService();
 
     public static synchronized ChromeService getInstance() {
         return instance;
     }
+
 
     private ChromeService() {
 
@@ -32,7 +30,7 @@ public class ChromeService extends BrowserService {
 
     }
 
-    @Override
+      @Override
     public ChromeDriver getDriver() {
         return new ChromeDriver();
     }

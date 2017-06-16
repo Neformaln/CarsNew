@@ -7,12 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class FirefoxService extends BrowserService {
 
+
+
     private static final String GECKO_DRIVER_NAME = "webdriver.gecko.driver";
-
     private static final String DRIVER_LOCATION_KEY_LIN = "driver_firefox_location_lin";
-
     private static final String DRIVER_LOCATION_KEY_WIN = "driver_firefox_location_win";
-
     private static final FirefoxService instance = new FirefoxService();
 
     public static synchronized FirefoxService getInstance()
