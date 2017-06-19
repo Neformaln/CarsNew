@@ -37,10 +37,10 @@ public class SteamTest{
 
     @Test
     public void startTest() throws UnsupportedEncodingException {
-        MainSteamPage mainSteamPage = new MainSteamPage();
-        mainSteamPage.changeLanguage();
-        mainSteamPage.moveToGamesMenu();
-        mainSteamPage.clickOnActionSubmenu(Menu.ACTION);
+        MainSteamForm mainSteamForm = new MainSteamForm();
+        mainSteamForm.changeLanguage();
+        mainSteamForm.moveToGamesMenu();
+        mainSteamForm.clickOnActionSubmenu(Menu.ACTION);
 
         ActionForm actionForm = new ActionForm();
         actionForm.clickOnSpecials();

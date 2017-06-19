@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * Created by d.korobkin on 6/14/17.
  */
-public class MainSteamPage extends BaseForm {
+public class MainSteamForm extends BaseForm {
     Menu menu;
     Select selGamesmenu;
     Select selAction;
@@ -27,7 +27,7 @@ public class MainSteamPage extends BaseForm {
     String languageLocatorKey = "languageLocator";
     String russionOptionLocatorKey = "russionOptionLocator";
 
-    public MainSteamPage() {
+    public MainSteamForm() {
         menu = new Menu();
     }
 
