@@ -13,7 +13,7 @@ public class Menu extends BaseEntity{
     private static final String TEXT_LOCATORS_PATH = "%s_text.properties";
     private static final String MAIN_PROPERTIES_PATH = "config.properties";
     public static String GAMES;
-    public static String    ACTION;
+    public static String ACTION;
 
     public Menu() {
         initItems();

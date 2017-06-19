@@ -1,15 +1,12 @@
-package framework.webdriver.elements;
+package framework.webdriver;
 
-import framework.webdriver.BaseEntity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 
 public abstract class BaseElements extends BaseEntity {
-
     WebDriver driver;
 
     public BaseElements() {
@@ -27,5 +24,4 @@ public abstract class BaseElements extends BaseEntity {
     public WebElement findElement(By locator) {
         return getDriver().findElement(locator);
     }
-
 }

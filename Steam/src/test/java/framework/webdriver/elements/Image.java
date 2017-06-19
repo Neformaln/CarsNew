@@ -1,8 +1,8 @@
 package framework.webdriver.elements;
 
+import framework.webdriver.BaseElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
 

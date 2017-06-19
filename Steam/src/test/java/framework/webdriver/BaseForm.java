@@ -1,36 +1,34 @@
-package framework.steam.forms;
+package framework.webdriver;
 
 import framework.steam.services.GeneralFunctions;
-import framework.webdriver.BaseEntity;
 import framework.webdriver.browser.BrowserFactory;
 import org.openqa.selenium.WebDriver;
-
 import java.util.Properties;
 
 /**
  * Created by d.korobkin on 6/14/17.
  */
-public class BasePage extends BaseEntity {
+public class BaseForm extends BaseEntity {
     private static final String MAIN_PROPERTY_PATH = "config.properties";
-    private static final String LOCATOR_PROPERTY_PATH = "templates.properties";
+    private static final String LOCATOR_PROPERTY_PATH = "locators.properties";
     private static Properties properties;
     private static Properties locatorProperties;
     private static WebDriver driver;
 
-    public BasePage() {
+    public BaseForm() {
     }
 
-    public BasePage(WebDriver driver) {
+    public BaseForm(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
 
-  public void maximiseWindow() {
-      BrowserFactory.maximiseWindow();
-   }
+    public void maximiseWindow() {
+        BrowserFactory.maximiseWindow();
+    }
 
-    public void navigateToUrl(String url) {
-        BrowserFactory.navigateToUrl(url);
+    public void navigate(String url) {
+        BrowserFactory.navigateUrl(url);
     }
 
     public void exit() {
@@ -42,7 +40,7 @@ public class BasePage extends BaseEntity {
     }
 
     public Properties initProperties() {
-       GeneralFunctions generalFunctions = new GeneralFunctions();
+        GeneralFunctions generalFunctions = new GeneralFunctions();
         properties = generalFunctions.readProperties(MAIN_PROPERTY_PATH);
         return properties;
     }
@@ -53,11 +51,15 @@ public class BasePage extends BaseEntity {
         return locatorProperties;
     }
 
-    public Properties getLocatorProperties(){
-        return locatorProperties;
+    public void setDriver(WebDriver webDriver) {
+        driver = webDriver;
     }
 
     public static Properties getProperties() {
         return properties;
+    }
+
+    public Properties getLocatorProperties() {
+        return locatorProperties;
     }
 }

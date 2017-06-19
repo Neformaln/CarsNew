@@ -1,15 +1,14 @@
 package framework.webdriver.elements;
 
+import framework.webdriver.BaseElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by d.korobkin on 6/16/17.
  */
-
 public class Label extends BaseElements {
     WebElement label;
 

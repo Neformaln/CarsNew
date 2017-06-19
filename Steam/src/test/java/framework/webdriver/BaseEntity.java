@@ -1,9 +1,9 @@
 package framework.webdriver;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import java.util.Properties;
 
 /**
  * Created by d.korobkin on 6/14/17.
@@ -11,6 +11,7 @@ import java.util.Properties;
 public class BaseEntity {
 
     private static WebDriver driver;
+    public static Logger logger = Logger.getLogger(BaseEntity.class);
 
     public BaseEntity() {
     }
