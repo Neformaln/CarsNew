@@ -18,6 +18,7 @@ public abstract class BaseElement extends BaseEntity {
 
     public abstract void click();
     public abstract String getText();
+    public abstract boolean isDisplayed();
     public abstract void moveTo();
     public abstract String getAttribute(String str);
 

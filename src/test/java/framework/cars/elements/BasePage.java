@@ -22,7 +22,7 @@ public class BasePage extends BaseEntity {
 
     public BasePage(By titleLocator, String title) {
 
-            }
+    }
 
     public BasePage(WebDriver driver) {
         super(driver);
@@ -41,7 +41,7 @@ public class BasePage extends BaseEntity {
         BrowserFactory.exit();
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 

@@ -10,6 +10,7 @@ import java.util.List;
  * Created by User on 15.06.2017.
  */
 public class Label extends BaseElement {
+
     WebElement label;
 
     public Label() {
@@ -43,6 +44,11 @@ public class Label extends BaseElement {
 
     public String getText() {
         return label.getText();
+    }
+
+    @Override
+    public boolean isDisplayed() {
+        return false;
     }
 
     public static List<Label> getConvertedElements(String by) {

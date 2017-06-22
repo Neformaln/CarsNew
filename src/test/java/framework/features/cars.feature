@@ -6,8 +6,6 @@ Feature: Automatic test site cars.com
     Then "Read Specs & Reviews" tab is displayed
 
     When The user searches for randomly selected characteristics
-    And The values have been successfully selected in the combobox
-    And After entering the data, the user press the button Search
     Then After clicking on the Search button, a page describing the auto
 
     When On the Trims tab, the user select the first available vehicle modification
@@ -23,8 +21,6 @@ Feature: Automatic test site cars.com
     Then "Read Specs & Reviews" tab is displayed
 
     When The user searches for randomly selected characteristics
-    And The values have been successfully selected in the combobox
-    And After entering the data, the user press the button Search
     Then After clicking on the Search button, a page describing the auto
 
     When On the Trims tab, the user select the first available vehicle modification

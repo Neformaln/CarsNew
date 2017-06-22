@@ -30,8 +30,8 @@ public class Menu {
     }
 
     public void navigateMenu(MenuItem concreteItem){
-        BrowserFactory.waitLoadingPage();
-        BrowserFactory.waitLoadingPage();
+        BrowserFactory.waitPageToLoad();
+        BrowserFactory.waitPageToLoad();
         new Select(By.xpath(String.format(tabsLocator,concreteItem.getValue()))).click();
     }
 }

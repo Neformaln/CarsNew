@@ -7,14 +7,14 @@ public class Car {
 
     private String make;
     private String model;
-    private int year;
+    private String year;
     private String engine;
     private String transmission;
 
     public Car() {
     }
 
-    public Car(String make, String model, int year) {
+    public Car(String make, String model, String year) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -41,11 +41,11 @@ public class Car {
         this.model = model;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -83,7 +83,7 @@ public class Car {
     public int hashCode() {
         int result = make.hashCode();
         result = 31 * result + model.hashCode();
-        result = 31 * result + year;
+        result = 31 * result + year.hashCode();
         result = 31 * result + engine.hashCode();
         result = 31 * result + transmission.hashCode();
         return result;
@@ -94,9 +94,10 @@ public class Car {
         return "Car{" +
                 "make='" + make + '\'' +
                 ", model='" + model + '\'' +
-                ", year=" + year +
+                ", year=" + year + '\'' +
                 ", engine='" + engine + '\'' +
                 ", transmission='" + transmission + '\'' +
                 '}';
     }
+
 }

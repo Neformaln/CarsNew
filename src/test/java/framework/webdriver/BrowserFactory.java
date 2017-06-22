@@ -97,7 +97,7 @@ public abstract class BrowserFactory {
     }
 
     public static Long getTimeForLoadPage(){
-        return Long.parseLong(properties.getProperty("timeoutJs"));
+        return Long.parseLong(properties.getProperty("timeoutLoad"));
     }
 
     public static Long getTimeForLoadElement(){

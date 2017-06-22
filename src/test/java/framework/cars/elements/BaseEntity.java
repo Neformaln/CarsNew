@@ -18,7 +18,7 @@ public class BaseEntity {
         driver = driver1;
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 
